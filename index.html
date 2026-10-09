@@ -1420,7 +1420,7 @@
                 the lesson. Supporting documents are listed below.
                 <p>
                     <strong>Teacher memorandum / answer key:</strong>
-                    <a href="https://github.com/shaketangeto-stack/Tremendous-Academy/blob/main/Documents/Teacher_Memorandum.pdf"
+                    <a href="https://shaketangeto-stack.github.io/Tremendous-Academy/Documents/Teacher_Memorandum.pdf"
                        target="_blank" rel="noopener noreferrer">Open Teacher_Memorandum.pdf</a>.
                     This PDF contains the five multiple-choice answers and the suggested 20-mark
                     marking guide for the email-writing task.
@@ -1619,13 +1619,12 @@
                 return;
             }
 
-            showStatus("Found " + filtered.length + " document(s). Select a document card to open the file page and access the download option.", false);
+            showStatus("Found " + filtered.length + " document(s). Select a document to open it directly in your browser.", false);
 
             filtered.forEach(function (file) {
                 const card = document.createElement("a");
                 card.className = "document-card";
-                card.href = "https://github.com/" + owner + "/" + repository + "/blob/" +
-                    branch + "/" + file.path.split("/").map(encodeURIComponent).join("/");
+                card.href = siteBase + file.path.split("/").map(encodeURIComponent).join("/");
                 card.target = "_blank";
                 card.rel = "noopener noreferrer";
                 card.setAttribute("aria-label", "Open or download " + file.name);
