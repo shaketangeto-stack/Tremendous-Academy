@@ -90,7 +90,16 @@
             padding: 28px;
             margin-bottom: 25px;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+            scroll-margin-top: 76px;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 3px solid #2f75b5;
+            outline-offset: 3px;
         }
 
         h2 {
@@ -342,11 +351,22 @@
         }
 
         .document-card {
+            display: block;
             border: 1px solid #d8e1eb;
             border-radius: 8px;
             padding: 16px;
             background: #f8fafc;
             min-width: 0;
+            color: inherit;
+            text-decoration: none;
+            transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+        }
+
+        .document-card:hover,
+        .document-card:focus-visible {
+            border-color: #2f75b5;
+            background: #eef5fb;
+            transform: translateY(-2px);
         }
 
         .document-card h3 {
@@ -358,13 +378,6 @@
             color: #526174;
             font-size: 0.9rem;
             overflow-wrap: anywhere;
-        }
-
-        .document-card a {
-            display: inline-block;
-            margin-top: 6px;
-            color: #17365d;
-            font-weight: bold;
         }
 
         .document-status {
@@ -496,13 +509,12 @@
         <a href="#content">Learning Content</a>
         <a href="#aids">Teaching Aids</a>
         <a href="#lesson-plan">Lesson Plan</a>
-        <a href="#documents">Repository Documents</a>
+        <a href="#sources">Resources &amp; Sources</a>
         <a href="#activity">Activity</a>
         <a href="#assessment">Assessment</a>
         <a href="#memorandum">Memorandum</a>
         <a href="#support">Learning Support</a>
         <a href="#citizenship">Digital Citizenship</a>
-        <a href="#sources">Sources</a>
     </div>
 </nav>
 
@@ -1090,9 +1102,10 @@
         <h2>6. Digital Assessment</h2>
 
         <p>
-            Answer all five questions. The multiple-choice questions
-            contribute to the automatic score. The written response should
-            be marked by the teacher using the memorandum.
+            Complete Questions 1–5 (one mark each) and Question 6, the
+            written email (20 marks). Questions 1–5 are marked automatically;
+            the teacher marks Question 6 using the memorandum below.
+            <strong>Total: 25 marks.</strong>
         </p>
 
         <form id="quizForm">
@@ -1236,7 +1249,41 @@
             <div class="question">
 
                 <p>
-                    <strong>Question 5 — 6 marks</strong>
+                    <strong>Question 5 — 1 mark</strong>
+                </p>
+
+                <p>
+                    Which closing is most appropriate for a formal email
+                    when the recipient’s name is known?
+                </p>
+
+                <label>
+                    <input type="radio" name="q5" value="a">
+                    Yours faithfully
+                </label>
+
+                <label>
+                    <input type="radio" name="q5" value="b">
+                    Kind regards
+                </label>
+
+                <label>
+                    <input type="radio" name="q5" value="c">
+                    Yours sincerely
+                </label>
+
+                <label>
+                    <input type="radio" name="q5" value="d">
+                    Best wishes
+                </label>
+
+            </div>
+
+
+            <div class="question">
+
+                <p>
+                    <strong>Question 6 — 20 marks</strong>
                 </p>
 
                 <p>
@@ -1252,7 +1299,7 @@
                 </p>
 
                 <textarea
-                    id="q5"
+                    id="q6"
                     rows="12"
                     placeholder="Write your formal email here..."></textarea>
 
@@ -1273,38 +1320,47 @@
 
     
 
-    <!-- REPOSITORY DOCUMENT LIBRARY -->
+    
+    <!-- 7. MEMORANDUM -->
 
-    <section id="documents">
-        <h2>7. Repository Documents</h2>
-        <p>
-            Browse and open learning documents published in the Tremendous Academy
-            GitHub repository. The list is generated from the repository, so newly
-            added supported documents appear here after the site is redeployed.
-        </p>
-
-        <div class="documents-toolbar">
-            <label for="document-search"><strong>Search documents</strong></label>
-            <input id="document-search" type="text" placeholder="Search by file name or folder..." autocomplete="off">
+    <section id="memorandum">
+        <h2>7. Memorandum and Marking Rubric</h2>
+        <h3>Multiple-Choice Answer Key (5 marks)</h3>
+        <ol>
+            <li><strong>Question 1: B — Subject.</strong> The subject tells the recipient what the email is about.</li>
+            <li><strong>Question 2: A — Respectful and formal language.</strong> A formal email to a principal should use polite, appropriate language.</li>
+            <li><strong>Question 3: A — The main message or information.</strong> The body contains the main content of the email.</li>
+            <li><strong>Question 4: B — To check grammar, spelling and punctuation.</strong> Proofreading helps improve accuracy and clarity.</li>
+            <li><strong>Question 5: C — Yours sincerely.</strong> This is an appropriate formal closing when the recipient is addressed by name.</li>
+        </ol>
+        <h3>Question 6: Written Formal Email (20 marks)</h3>
+        <p>Expected response: a clear formal email to the principal requesting permission to hold a school event. Accept any relevant, coherent response that fulfils the task and uses an appropriate email format.</p>
+        <div class="rubric">
+            <div class="comparison">
+                <table>
+                    <thead><tr><th>Criterion</th><th>What to look for</th><th>Marks</th></tr></thead>
+                    <tbody>
+                        <tr><td>Subject line</td><td>Relevant, concise subject that identifies the request.</td><td>2</td></tr>
+                        <tr><td>Greeting</td><td>Appropriate and respectful formal greeting.</td><td>2</td></tr>
+                        <tr><td>Purpose and request</td><td>Clearly states the reason for writing and politely asks permission.</td><td>4</td></tr>
+                        <tr><td>Event details and relevance</td><td>Includes useful information about the proposed event, such as its purpose, planned activities or intended participants.</td><td>4</td></tr>
+                        <tr><td>Organisation and coherence</td><td>Ideas are logically ordered, with a clear beginning, supporting details and conclusion.</td><td>3</td></tr>
+                        <tr><td>Formal language and tone</td><td>Polite, appropriate register; avoids slang and unnecessarily casual wording.</td><td>3</td></tr>
+                        <tr><td>Closing and name</td><td>Suitable formal closing followed by the sender’s name.</td><td>1</td></tr>
+                        <tr><td>Grammar, spelling and punctuation</td><td>Writing is sufficiently accurate and easy to understand.</td><td>1</td></tr>
+                        <tr><th colspan="2">Total for Question 6</th><th>20</th></tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-
-        <p id="document-status" class="document-status" role="status" aria-live="polite">
-            Loading documents from the repository...
-        </p>
-        <div id="document-list" class="document-list"></div>
-        <p>
-            <a href="https://github.com/shaketangeto-stack/Tremendous-Academy/tree/main/Documents" target="_blank" rel="noopener noreferrer">
-                Browse the Documents folder on GitHub
-            </a>
-        </p>
+        <p><strong>Assessment total:</strong> Multiple-choice Questions 1–5 = 5 marks; written email Question 6 = 20 marks; <strong>overall total = 25 marks.</strong></p>
     </section>
 
-
-    <!-- 8. DIGITAL CITIZENSHIP -->
+    <!-- 10. DIGITAL CITIZENSHIP -->
 
     <section id="citizenship">
 
-        <h2>8. Digital Citizenship</h2>
+        <h2>10. Digital Citizenship</h2>
 
         <h3>Responsible Online Participation</h3>
 
@@ -1326,7 +1382,7 @@
         <h3>Learner Privacy</h3>
 
         <p>
-            Personal information belonging to learners should Personal information belonging to learners should not be
+            Personal information belonging to learners should not be
             publicly displayed on the website. Learner names, contact
             details, passwords, addresses and photographs should not be
             published without appropriate permission.
@@ -1342,64 +1398,68 @@
     </section>
 
 
-    <!-- 8. SOURCES -->
+    <!-- 11. SOURCES -->
 
     <section id="sources">
 
-        <h2>9. Sources and Acknowledgements</h2>
+        <h2>Resources, Sources and Acknowledgements</h2>
 
-        <p>
-            <strong>NSSCAS English Second Language Syllabus<strong>
-            https://www.nied.edu.na/assets/documents/02Syllabuses/05SeniorSecondary/EnglishSecondLanguage/NSSCAS_English_Second_Language_syllabus_approved_26_October_2020.pdf
-        </p>
-
-        
-                <strong>Lesson plan:</strong>
-                Tremendous Academy English Second Language lesson
-                plan: Writing Skills — Email.
+        <ol>
+            <li>
+                <strong>NSSCAS English Second Language Syllabus.</strong>
+                <a href="https://www.nied.edu.na/assets/documents/02Syllabuses/05SeniorSecondary/EnglishSecondLanguage/NSSCAS_English_Second_Language_syllabus_approved_26_October_2020.pdf" target="_blank" rel="noopener noreferrer">Read the syllabus published by NIED (PDF)</a>.
             </li>
-
+            <li>
+                <strong>Lesson plan:</strong>
+                Tremendous Academy English Second Language lesson plan:
+                Writing Skills — Email.
+            </li>
             <li>
                 <strong>Teaching resources:</strong>
-                List any textbook, educational website, article, video,
-                diagram or other resource used.
+                The laptop and projector are identified as teaching aids in
+                the lesson. Supporting documents are listed below.
+                <p id="document-status" class="document-status" role="status" aria-live="polite">
+                    Loading resources from the repository...
+                </p>
+                <div id="document-list" class="document-list"></div>
             </li>
-
         </ol>
 
         <h3>AI Use Disclosure</h3>
-
         <p>
-            Codeex from openAI has been used to draft the html file.
+            OpenAI ChatGPT was used to assist with drafting and editing the
+            HTML file. The educational content and final website should be
+            reviewed by the authors before use.
         </p>
+
+    </section>
+
+    <!-- 9. LEARNING SUPPORT -->
+    <section id="support">
+        <h2>9. Learning Support</h2>
+        <div class="support-card">
+            <h3>Support for learners who need guidance</h3>
+            <ul>
+                <li>Use the model formal email to identify the subject, greeting, body and closing.</li>
+                <li>Plan the main ideas in the interactive activity before writing the complete email.</li>
+                <li>Use the checklist to confirm that the request is polite and the ideas are organised.</li>
+                <li>Proofread the final email for grammar, spelling and punctuation.</li>
+            </ul>
+        </div>
+        <div class="support-card">
+            <h3>Extension for confident writers</h3>
+            <p>
+                Add a concise explanation of the event’s educational value,
+                include relevant practical details, and revise the email to
+                make it clear, concise and professional.
+            </p>
+        </div>
+
+    </section>
 
     
 
 </main>
-
-
-<footer>
-
-    <p>
-        <strong>Tremendous Academy</strong>
-    </p>
-
-    <p>
-        English Second Language — Grades 10–11
-    </p>
-
-    <p>
-        Writing Skills: Email
-    </p>
-
-    <p>
-        ICT in Teaching &amp; Learning Educational Website
-    </p>
-
-    <a class="back-top" href="#top">Back to top</a>
-
-</footer>
-
 
 
 <section class="designed-by-section" aria-labelledby="designed-by-heading">
@@ -1409,19 +1469,15 @@
         <div class="designed-by-member">
             <span class="designed-by-number" aria-hidden="true">1</span>
             <div>
-                <span class="designed-by-name">Ester N. Andreas</span>
-                <span class="designed-by-student-number">Student No.: 224178849</span>
-            </div>
-            <div>
-                <span class="designed-by-name">Gerson Fillemon</span>
-                <span class="designed-by-student-number">Student No.: 224189948</span>
+                <span class="designed-by-name">Josephina K Haukongo</span>
+                <span class="designed-by-student-number">Student No.: 225064340</span>
             </div>
         </div>
         <div class="designed-by-member">
             <span class="designed-by-number" aria-hidden="true">2</span>
             <div>
-                <span class="designed-by-name">Josephina K. Haukongo</span>
-                <span class="designed-by-student-number">Student No.: 225064340</span>
+                <span class="designed-by-name">Gerson Fillemon</span>
+                <span class="designed-by-student-number">Student No.: 224189948</span>
             </div>
         </div>
         <div class="designed-by-member">
@@ -1434,14 +1490,14 @@
         <div class="designed-by-member">
             <span class="designed-by-number" aria-hidden="true">4</span>
             <div>
-                <span class="designed-by-name">Pelasiu H. Mwafangeyo</span>
+                <span class="designed-by-name">Pelasiu H Mwafangeyo</span>
                 <span class="designed-by-student-number">Student No.: 225061627</span>
             </div>
         </div>
         <div class="designed-by-member">
             <span class="designed-by-number" aria-hidden="true">5</span>
             <div>
-                <span class="designed-by-name">Edward N. Ngelenge</span>
+                <span class="designed-by-name">Edward N Ngelenge</span>
                 <span class="designed-by-student-number">Student No.: 221176349</span>
             </div>
         </div>
@@ -1476,6 +1532,32 @@
     </div>
 </section>
 
+<footer>
+
+    <p>
+        <strong>Tremendous Academy</strong>
+    </p>
+
+    <p>
+        English Second Language — Grades 10–11
+    </p>
+
+    <p>
+        Writing Skills: Email
+    </p>
+
+    <p>
+        ICT in Teaching &amp; Learning Educational Website
+    </p>
+
+    <a class="back-top" href="#top">Back to top</a>
+
+</footer>
+
+
+
+
+
 <script>
 
     /*
@@ -1494,7 +1576,6 @@
 
         const status = document.getElementById("document-status");
         const list = document.getElementById("document-list");
-        const search = document.getElementById("document-search");
         let documents = [];
 
         function showStatus(message, isError) {
@@ -1510,28 +1591,30 @@
         }
 
         function renderDocuments() {
-            const query = search.value.trim().toLowerCase();
-            const filtered = documents.filter(function (file) {
-                return file.path.toLowerCase().includes(query);
-            });
+            const filtered = documents;
 
             list.replaceChildren();
 
             if (filtered.length === 0) {
                 showStatus(
                     documents.length
-                        ? "No documents match your search."
-                        : "No supported documents were found in the repository.",
+                        ? "No supported documents were found in the Documents folder."
+                        : "No supported documents were found in the Documents folder.",
                     false
                 );
                 return;
             }
 
-            showStatus("Found " + filtered.length + " document(s). Select a file to open it.", false);
+            showStatus("Found " + filtered.length + " document(s). Select a document card to open the file page and access the download option.", false);
 
             filtered.forEach(function (file) {
-                const card = document.createElement("article");
+                const card = document.createElement("a");
                 card.className = "document-card";
+                card.href = "https://github.com/" + owner + "/" + repository + "/blob/" +
+                    branch + "/" + file.path.split("/").map(encodeURIComponent).join("/");
+                card.target = "_blank";
+                card.rel = "noopener noreferrer";
+                card.setAttribute("aria-label", "Open or download " + file.name);
 
                 const title = document.createElement("h3");
                 title.textContent = file.name;
@@ -1541,27 +1624,9 @@
                 path.textContent = file.path + (file.size ? " · " + readableSize(file.size) : "");
                 card.appendChild(path);
 
-                const openLink = document.createElement("a");
-                openLink.href = siteBase + file.path.split("/").map(encodeURIComponent).join("/");
-                openLink.target = "_blank";
-                openLink.rel = "noopener noreferrer";
-                openLink.textContent = file.extension === "pdf" ? "Open PDF" : "Open document";
-                card.appendChild(openLink);
-
-                const sourceLink = document.createElement("a");
-                sourceLink.href = "https://github.com/" + owner + "/" + repository + "/blob/" +
-                    branch + "/" + file.path.split("/").map(encodeURIComponent).join("/");
-                sourceLink.target = "_blank";
-                sourceLink.rel = "noopener noreferrer";
-                sourceLink.textContent = "View on GitHub";
-                sourceLink.style.marginLeft = "14px";
-                card.appendChild(sourceLink);
-
                 list.appendChild(card);
             });
         }
-
-        search.addEventListener("input", renderDocuments);
 
         fetch("https://api.github.com/repos/" + owner + "/" + repository + "/git/trees/" + branch + "?recursive=1")
             .then(function (response) {
@@ -1570,12 +1635,13 @@
             })
             .then(function (data) {
                 if (data.truncated) {
-                    showStatus("GitHub returned a partial file list. You can also browse the Documents folder directly.", true);
+                    showStatus("GitHub returned a partial file list. Some resources may be missing; try again later.", true);
                 }
 
                 documents = (data.tree || [])
                     .filter(function (item) {
-                        if (item.type !== "blob") return false;
+                        // List supported files only from the Documents folder.
+                        if (item.type !== "blob" || !item.path.startsWith("Documents/")) return false;
                         const name = item.path.split("/").pop();
                         const dot = name.lastIndexOf(".");
                         if (dot < 1) return false;
@@ -1601,7 +1667,7 @@
             .catch(function (error) {
                 console.error("Unable to load repository documents:", error);
                 showStatus(
-                    "The automatic document list could not be loaded. Check your internet connection or browse the Documents folder directly on GitHub.",
+                    "The resource list could not be loaded. Check your internet connection and try again later.",
                     true
                 );
             });
@@ -1646,8 +1712,8 @@
     /*
      * DIGITAL ASSESSMENT
      *
-     * Questions 1–4 are automatically marked.
-     * Question 5 is marked by the teacher using the memorandum.
+     * Questions 1–5 are automatically marked (5 marks total).
+     * Question 6 is marked by the teacher using the 20-mark rubric.
      */
 
     function submitQuiz() {
@@ -1656,7 +1722,8 @@
             q1: "b",
             q2: "a",
             q3: "a",
-            q4: "b"
+            q4: "b",
+            q5: "c"
         };
 
         let score = 0;
@@ -1674,7 +1741,7 @@
         }
 
         const writtenAnswer =
-            document.getElementById("q5").value.trim();
+            document.getElementById("q6").value.trim();
 
         const result =
             document.getElementById("quiz-result");
@@ -1684,7 +1751,7 @@
             result.style.display = "block";
 
             result.innerHTML =
-                "<strong>Please complete Question 5.</strong><br>" +
+                "<strong>Please complete Question 6.</strong><br>" +
                 "Write your formal email before submitting the assessment.";
 
             return;
@@ -1696,9 +1763,9 @@
             "<strong>Assessment submitted.</strong><br><br>" +
             "Automatically marked questions: " +
             score +
-            "/4.<br>" +
-            "Question 5: 6 marks — teacher marked.<br><br>" +
-            "<strong>Total assessment:</strong> 10 marks.";
+            "/5.<br>" +
+            "Question 6: 20 marks — teacher marked.<br><br>" +
+            "<strong>Total assessment:</strong> 25 marks (5 multiple-choice marks + 20 written-email marks).";
 
         result.scrollIntoView({
             behavior: "smooth",
