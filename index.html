@@ -403,7 +403,72 @@
                 font-size: 0.9rem;
             }
         }
-    </style>
+    
+/* GROUP CONTRIBUTORS */
+.designed-by-section {
+    margin: 36px auto 24px;
+    padding: 28px;
+    max-width: 1100px;
+    border: 1px solid #dbe4f0;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #f8fbff, #eef4ff);
+    color: #1e293b;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+}
+.designed-by-section h2 {
+    margin: 0 0 8px;
+    text-align: center;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: #173b70;
+}
+.designed-by-intro {
+    margin: 0 0 22px;
+    text-align: center;
+    color: #52627a;
+}
+.designed-by-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+}
+.designed-by-member {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1px solid #dce5f1;
+    border-radius: 12px;
+    background: #ffffff;
+}
+.designed-by-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #e0ebff;
+    color: #214e8a;
+    font-weight: 700;
+}
+.designed-by-name {
+    display: block;
+    font-weight: 650;
+    line-height: 1.35;
+}
+.designed-by-student-number {
+    display: block;
+    margin-top: 4px;
+    color: #607086;
+    font-size: 0.9rem;
+    font-variant-numeric: tabular-nums;
+}
+@media (max-width: 520px) {
+    .designed-by-section { padding: 20px 14px; }
+}
+
+</style>
 </head>
 
 <body>
@@ -1335,6 +1400,81 @@
 
 </footer>
 
+
+
+<section class="designed-by-section" aria-labelledby="designed-by-heading">
+    <h2 id="designed-by-heading">Designed by:</h2>
+    <p class="designed-by-intro">Tremendous Academy — Group Members</p>
+    <div class="designed-by-grid">
+        <div class="designed-by-member">
+            <span class="designed-by-number" aria-hidden="true">1</span>
+            <div>
+                <span class="designed-by-name">Ester N. Andreas</span>
+                <span class="designed-by-student-number">Student No.: 224178849</span>
+            </div>
+            <div>
+                <span class="designed-by-name">Gerson Fillemon</span>
+                <span class="designed-by-student-number">Student No.: 224189948</span>
+            </div>
+        </div>
+        <div class="designed-by-member">
+            <span class="designed-by-number" aria-hidden="true">2</span>
+            <div>
+                <span class="designed-by-name">Josephina K. Haukongo</span>
+                <span class="designed-by-student-number">Student No.: 225064340</span>
+            </div>
+        </div>
+        <div class="designed-by-member">
+            <span class="designed-by-number" aria-hidden="true">3</span>
+            <div>
+                <span class="designed-by-name">Sipopyeni Kaluvango</span>
+                <span class="designed-by-student-number">Student No.: 224184199</span>
+            </div>
+        </div>
+        <div class="designed-by-member">
+            <span class="designed-by-number" aria-hidden="true">4</span>
+            <div>
+                <span class="designed-by-name">Pelasiu H. Mwafangeyo</span>
+                <span class="designed-by-student-number">Student No.: 225061627</span>
+            </div>
+        </div>
+        <div class="designed-by-member">
+            <span class="designed-by-number" aria-hidden="true">5</span>
+            <div>
+                <span class="designed-by-name">Edward N. Ngelenge</span>
+                <span class="designed-by-student-number">Student No.: 221176349</span>
+            </div>
+        </div>
+        <div class="designed-by-member">
+            <span class="designed-by-number" aria-hidden="true">6</span>
+            <div>
+                <span class="designed-by-name">Nghidiwakusha Ruth</span>
+                <span class="designed-by-student-number">Student No.: 221364129</span>
+            </div>
+        </div>
+        <div class="designed-by-member">
+            <span class="designed-by-number" aria-hidden="true">7</span>
+            <div>
+                <span class="designed-by-name">Kaleb Nghishidivali</span>
+                <span class="designed-by-student-number">Student No.: 224180991</span>
+            </div>
+        </div>
+        <div class="designed-by-member">
+            <span class="designed-by-number" aria-hidden="true">8</span>
+            <div>
+                <span class="designed-by-name">Salomo SU Noodi</span>
+                <span class="designed-by-student-number">Student No.: 224231995</span>
+            </div>
+        </div>
+        <div class="designed-by-member">
+            <span class="designed-by-number" aria-hidden="true">9</span>
+            <div>
+                <span class="designed-by-name">Tangeni O. Shaketange</span>
+                <span class="designed-by-student-number">Student No.: 219377493</span>
+            </div>
+        </div>
+    </div>
+</section>
 
 <script>
 
