@@ -1422,11 +1422,6 @@
                     Loading resources from the repository...
                 </p>
                 <div id="document-list" class="document-list"></div>
-                <p>
-                    <a href="https://github.com/shaketangeto-stack/Tremendous-Academy/tree/main/Documents" target="_blank" rel="noopener noreferrer">
-                        Browse all files in the Documents folder on GitHub
-                    </a>
-                </p>
             </li>
         </ol>
 
@@ -1627,20 +1622,12 @@
                 card.appendChild(path);
 
                 const openLink = document.createElement("a");
-                openLink.href = siteBase + file.path.split("/").map(encodeURIComponent).join("/");
+                openLink.href = "https://github.com/" + owner + "/" + repository + "/blob/" +
+                    branch + "/" + file.path.split("/").map(encodeURIComponent).join("/");
                 openLink.target = "_blank";
                 openLink.rel = "noopener noreferrer";
-                openLink.textContent = file.extension === "pdf" ? "Open PDF" : "Open document";
+                openLink.textContent = file.extension === "pdf" ? "Open PDF / download" : "Open / download document";
                 card.appendChild(openLink);
-
-                const sourceLink = document.createElement("a");
-                sourceLink.href = "https://github.com/" + owner + "/" + repository + "/blob/" +
-                    branch + "/" + file.path.split("/").map(encodeURIComponent).join("/");
-                sourceLink.target = "_blank";
-                sourceLink.rel = "noopener noreferrer";
-                sourceLink.textContent = "View on GitHub";
-                sourceLink.style.marginLeft = "14px";
-                card.appendChild(sourceLink);
 
                 list.appendChild(card);
             });
@@ -1655,7 +1642,7 @@
             })
             .then(function (data) {
                 if (data.truncated) {
-                    showStatus("GitHub returned a partial file list. You can also browse the Documents folder directly.", true);
+                    showStatus("GitHub returned a partial file list. Some resources may be missing; try again later.", true);
                 }
 
                 documents = (data.tree || [])
@@ -1686,7 +1673,7 @@
             .catch(function (error) {
                 console.error("Unable to load repository documents:", error);
                 showStatus(
-                    "The automatic document list could not be loaded. Check your internet connection or browse the Documents folder directly on GitHub.",
+                    "The resource list could not be loaded. Check your internet connection and try again later.",
                     true
                 );
             });
