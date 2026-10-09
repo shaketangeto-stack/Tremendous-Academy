@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Email Writing | ICT-Integrated Educational Lesson</title>
+
+    <meta name="description" content="English Second Language educational lesson on email writing for Grades 10-11 at Tremendous Academy.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.65;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #17365d;
+            color: white;
+            padding: 35px 20px;
+        }
+
+        .container {
+            width: min(1100px, 92%);
+            margin: auto;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 1.05rem;
+        }
+
+        .school-badge {
+            display: inline-block;
+            background: #ffffff;
+            color: #17365d;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        nav {
+            background: #0f243e;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        nav .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 13px 10px;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            background: #2f75b5;
+        }
+
+        main {
+            padding: 30px 0;
+        }
+
+        section {
+            background: white;
+            padding: 28px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+        }
+
+        h2 {
+            color: #17365d;
+            border-bottom: 3px solid #2f75b5;
+            padding-bottom: 8px;
+            margin-bottom: 18px;
+        }
+
+        h3 {
+            color: #245b8f;
+            margin: 20px 0 10px;
+        }
+
+        h4 {
+            margin: 15px 0 8px;
+        }
+
+        p {
+            margin-bottom: 12px;
+        }
+
+        ul, ol {
+            margin: 10px 0 15px 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            background: #eef5fb;
+            border-left: 5px solid #2f75b5;
+            padding: 16px;
+            border-radius: 6px;
+        }
+
+        .objective {
+            background: #f7f9fb;
+            border-left: 4px solid #2f75b5;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .note {
+            background: #fff8df;
+            border-left: 5px solid #e0a800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .email-example {
+            max-width: 850px;
+            margin: 20px auto;
+            border: 1px solid #ccd5df;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .email-header {
+            background: #edf2f7;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ccd5df;
+        }
+
+        .email-body {
+            padding: 22px;
+            background: white;
+        }
+
+        .email-row {
+            margin-bottom: 6px;
+        }
+
+        .email-row strong {
+            display: inline-block;
+            min-width: 75px;
+        }
+
+        .email-body p {
+            margin: 12px 0;
+        }
+
+        .comparison {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            border: 1px solid #ccd2d9;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #17365d;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f7f8fa;
+        }
+
+        .aid {
+            background: #fafafa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 18px 0;
+        }
+
+        .aid-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .activity {
+            background: #fff8e8;
+            border-left: 5px solid #f0ad4e;
+            padding: 20px;
+            border-radius: 6px;
+        }
+
+        textarea,
+        input[type="text"] {
+            width: 100%;
+            padding: 11px;
+            margin-top: 6px;
+            border: 1px solid #bfc7d1;
+            border-radius: 5px;
+            font: inherit;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background: #17365d;
+            color: white;
+            border: none;
+            padding: 11px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #2f75b5;
+        }
+
+        .question {
+            padding: 18px;
+            background: #f8fafc;
+            border: 1px solid #e0e5ea;
+            border-radius: 7px;
+            margin: 15px 0;
+        }
+
+        .question label {
+            display: block;
+            margin: 8px 0;
+            cursor: pointer;
+        }
+
+        .result {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 6px;
+            background: #e3f3e5;
+            border-left: 5px solid #39843c;
+        }
+
+        .support-card {
+            background: #eef8ef;
+            border-left: 5px solid #4b9b50;
+            padding: 17px;
+            margin: 12px 0;
+            border-radius: 6px;
+        }
+
+        .lesson-plan {
+            overflow-x: auto;
+        }
+
+        .lesson-plan table {
+            min-width: 850px;
+        }
+
+        .rubric {
+            background: #eef5fb;
+            padding: 18px;
+            border-radius: 7px;
+            margin-top: 15px;
+        }
+
+        footer {
+            background: #0f243e;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer a {
+            color: white;
+        }
+
+        .back-top {
+            display: inline-block;
+            margin-top: 12px;
+        }
+
+        @media (max-width: 700px) {
+            header h1 {
+                font-size: 1.7rem;
+            }
+
+            nav .container {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+            }
+
+            nav a {
+                white-space: nowrap;7
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            th, td {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header id="top">
+    <div class="container">
+        <span class="school-badge">Tremendous Academy</span>
+
+        <h1>English Second Language | Grades 10–11</h1>
+
+        <p>
+            Writing Skills: Email
+        </p>
+
+        <p>
+            An ICT-integrated learning resource for teaching formal and
+            informal email writing.
+        </p>
+    </div>
+</header>
+
+<nav aria-label="Main navigation">
+    <div class="container">
+        <a href="#introduction">Introduction</a>
+        <a href="#content">Learning Content</a>
+        <a href="#aids">Teaching Aids</a>
+        <a href="#lesson-plan">Lesson Plan</a>
+        <a href="#activity">Activity</a>
+        <a href="#assessment">Assessment</a>
+        <a href="#memorandum">Memorandum</a>
+        <a href="#support">Learning Support</a>
+        <a href="#citizenship">Digital Citizenship</a>
+        <a href="#sources">Sources</a>
+    </div>
+</nav>
+
+<main class="container">
+
+    <!-- 1. INTRODUCTION AND OBJECTIVES -->
+
+    <section id="introduction">
+
+        <h2>1. Introduction and Learning Objectives</h2>
+
+        <div class="hero-grid">
+
+            <div class="info-card">
+                <strong>School</strong><br>
+                Tremendous Academy
+            </div>
+
+            <div class="info-card">
+                <strong>Subject</strong><br>
+                English Second Language
+            </div>
+
+            <div class="info-card">
+                <strong>Grade</strong><br>
+                10–11
+            </div>
+
+            <div class="info-card">
+                <strong>Topic / Skill</strong><br>
+                Writing Skills
+            </div>
+
+            <div class="info-card">
+                <strong>Sub-topic / Focus</strong><br>
+                Email
+            </div>
+
+            <div class="info-card">
+                <strong>Lesson Focus</strong><br>
+                Formal and informal emails
+            </div>
+
+        </div>
+
+        <h3>Introduction</h3>
+
+        <p>
+            Email is an important form of written communication used in
+            education, workplaces and everyday communication. In this
+            lesson, learners explore the structure and purpose of emails
+            and learn how to select appropriate language and register for
+            different communication situations.
+        </p>
+
+        <p>
+            Learners will focus particularly on writing a clear,
+            appropriately formatted formal email and on editing their
+            writing for grammar, spelling and punctuation.
+        </p>
+
+        <h3>Prior Knowledge</h3>
+
+        <p>Learners are expected to know:</p>
+
+        <ul>
+            <li>Basic computer and/or mobile communication.</li>
+            <li>The parts of a letter.</li>
+            <li>Formal and informal language.</li>
+        </ul>
+
+        <h3>General Objective</h3>
+
+        <p>
+            Learners will write a variety of texts using effective word
+            choice, sentence structure and forms.
+        </p>
+
+        <h3>Specific Learning Objectives</h3>
+
+        <p>By the end of the lesson, learners should be able to:</p>
+
+        <div class="objective">
+            <strong>1.</strong> Define an email and explain its purpose.
+        </div>
+
+        <div class="objective">
+            <strong>2.</strong> Identify the main parts of an email.
+        </div>
+
+        <div class="objective">
+            <strong>3.</strong> Distinguish between formal and informal emails.
+        </div>
+
+        <div class="objective">
+            <strong>4.</strong> Use appropriate formal language and register.
+        </div>
+
+        <div class="objective">
+            <strong>5.</strong> Organise ideas logically in an email.
+        </div>
+
+        <div class="objective">
+            <strong>6.</strong> Write a clear and appropriately formatted formal email.
+        </div>
+
+        <div class="objective">
+            <strong>7.</strong> Edit and proofread an email for grammar,
+            spelling and punctuation errors.
+        </div>
+
+    </section>
+
+
+    <!-- 2. LEARNING CONTENT -->
+
+    <section id="content">
+
+        <h2>2. Learning Content</h2>
+
+        <h3>What Is an Email?</h3>
+
+        <p>
+            An email is an electronic message sent from one person or
+            organisation to another using an electronic communication
+            system. Emails can be used for personal, educational or
+            professional communication.
+        </p>
+
+        <h3>Purpose of an Email</h3>
+
+        <p>
+            The purpose of an email depends on the situation and the
+            relationship between the sender and recipient. An email may
+            be used to communicate information, make a request, ask a
+            question, provide an explanation, or maintain contact.
+        </p>
+
+        <h3>Main Parts of an Email</h3>
+
+        <ol>
+            <li>
+                <strong>Recipient:</strong>
+                The person or organisation receiving the email.
+            </li>
+
+            <li>
+                <strong>Subject:</strong>
+                A short statement showing what the email is about.
+            </li>
+
+            <li>
+                <strong>Greeting:</strong>
+                The opening expression used to address the recipient.
+            </li>
+
+            <li>
+                <strong>Body:</strong>
+                The main message containing the information, request or
+                explanation.
+            </li>
+
+            <li>
+                <strong>Closing:</strong>
+                The expression used to end the message before the sender's
+                name.
+            </li>
+        </ol>
+
+
+        <h3>Formal and Informal Emails</h3>
+
+        <div class="comparison">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Formal Email</th>
+                        <th>Informal Email</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            Used when communicating in a formal,
+                            educational or professional situation.
+                        </td>
+
+                        <td>
+                            Usually used when communicating with people
+                            with whom the writer has a familiar relationship.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Uses polite and appropriate formal language.
+                        </td>
+
+                        <td>
+                            May use more relaxed and conversational language.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Avoids unnecessary slang and overly casual
+                            expressions.
+                        </td>
+
+                        <td>
+                            May contain more familiar expressions.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Ideas should be clearly organised and
+                            professionally presented.
+                        </td>
+
+                        <td>
+                            The style may be more personal and conversational.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+        <h3>Formal Language and Register</h3>
+
+        <p>
+            Register refers to the style of language appropriate for a
+            particular situation and audience. When writing a formal
+            email, learners should consider who will receive the message
+            and select respectful and appropriate language.
+        </p>
+
+        <div class="note">
+            <strong>Remember:</strong>
+            Before sending an email, check the recipient, subject,
+            greeting, body, closing, spelling, grammar and punctuation.
+        </div>
+
+    </section>
+
+
+    <!-- 3. TEACHING AIDS -->
+
+    <section id="aids">
+
+        <h2>3. ICT Teaching Aids</h2>
+
+        <p>
+            The lesson plan identifies a laptop with a drafted email and
+            a projector for displaying the email sample as learning and
+            teaching media.
+        </p>
+
+        <div class="aid">
+
+            <div class="aid-icon">💻</div>
+
+            <h3>Teaching Aid 1: Drafted Email on a Laptop</h3>
+
+            <p>
+                The teacher can prepare a model email on a laptop and use
+                it to demonstrate the structure of an email and the
+                appropriate use of formal language.
+            </p>
+
+            <p>
+                <strong>Learning purpose:</strong>
+                Learners can examine the different parts of the email
+                and observe how information is organised.
+            </p>
+
+        </div>
+
+
+        <div class="aid">
+
+            <div class="aid-icon">📽️</div>
+
+            <h3>Teaching Aid 2: Projector</h3>
+
+            <p>
+                The teacher can display the model email on a projector so
+                that the class can view and discuss its structure and
+                language together.
+            </p>
+
+            <p>
+                <strong>Learning purpose:</strong>
+                The projected example allows the teacher to highlight the
+                recipient, subject, greeting, body and closing while
+                learners follow the explanation.
+            </p>
+
+        </div>
+
+
+        <h3>Model Formal Email</h3>
+
+        <div class="email-example">
+
+            <div class="email-header">
+
+                <div class="email-row">
+                    <strong>To:</strong>
+                    principal@school.example
+                </div>
+
+                <div class="email-row">
+                    <strong>Subject:</strong>
+                    Request for Permission to Hold a School Event
+                </div>
+
+            </div>
+
+            <div class="email-body">
+
+                <p>Dear Principal,</p>
+
+                <p>
+                    I am writing to respectfully request permission to hold
+                    a school event for learners at our school. The event
+                    would provide learners with an opportunity to
+                    participate in an educational and social activity.
+                </p>
+
+                <p>
+                    I would appreciate your consideration of this request.
+                    I am available to provide further information about
+                    the proposed event if required.
+                </p>
+
+                <p>
+                    Thank you for considering my request.
+                </p>
+
+                <p>
+                    Yours faithfully,<br>
+                    <strong>Student Name</strong>
+                </p>
+
+            </div>
+
+        </div>
+
+        <p>
+            <strong>Note:</strong>
+            The email above is a model for demonstrating structure,
+            organisation and formal register. Learners should produce
+            their own wording in the assessment task.
+        </p>
+
+    </section>
+
+
+    <!-- 4. ICT INTEGRATED LESSON PLAN -->
+
+    <section id="lesson-plan">
+
+        <h2>4. ICT-Integrated Lesson Plan</h2>
+
+        <p>
+            The website extends the classroom lesson by presenting the
+            lesson content digitally. It can be used alongside the
+            teacher's laptop and projector and provides learners with an
+            opportunity to review the material and complete an interactive
+            assessment.
+        </p>
+
+        <div class="lesson-plan">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Time</th>
+                        <th>Phase / Skills</th>
+                        <th>Lesson Content and Vocabulary</th>
+                        <th>Teacher Activities, Media and Methods</th>
+                        <th>Learner Activities, Media and Methods</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>7 min</td>
+
+                        <td>
+                            <strong>Introduction</strong><br>
+                            Listening / Speaking
+                        </td>
+
+                        <td>
+                            Email, formal, informal, recipient, subject.
+                        </td>
+
+                        <td>
+                            Introduces the topic and asks learners what
+                            they know about emails. Displays a sample
+                            email using the projector.
+                            <br><br>
+                            <strong>Media:</strong> Projector displaying
+                            sample email.
+                        </td>
+
+                        <td>
+                            Respond to questions and identify features of
+                            the displayed email.
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>18 min</td>
+
+                        <td>
+                            <strong>Development</strong><br>
+                            Reading / Speaking / Writing
+                        </td>
+
+                        <td>
+                            Parts of an email: recipient, subject,
+                            greeting, body and closing.
+                            <br><br>
+                            Formal language and register.
+                        </td>
+
+                        <td>
+                            Explains email structure using the sample.
+                            Highlights formal expressions and asks
+                            questions.
+                            <br><br>
+                            <strong>Media:</strong> Projector and laptop.
+                        </td>
+
+                        <td>
+                            Identify parts of the email, answer questions
+                            and take notes.
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>15 min</td>
+
+                        <td>
+                            <strong>Practical / Assessment</strong><br>
+                            Writing
+                        </td>
+
+                        <td>
+                            Writing a formal email.
+                        </td>
+
+                        <td>
+                            Gives the task: write an email to the principal
+                            requesting permission for a school event.
+                            Monitors and assists learners.
+                            <br><br>
+                            <strong>Methods:</strong> Notebooks and pens.
+                        </td>
+
+                        <td>
+                            Write the email and check grammar, spelling
+                            and punctuation.
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>5 min</td>
+
+                        <td>
+                            <strong>Reinforcement / Conclusion</strong><br>
+                            Speaking / Listening
+                        </td>
+
+                        <td>
+                            Recap of email structure and formal language.
+                        </td>
+
+                        <td>
+                            Recaps the main points and gives homework.
+                        </td>
+
+                        <td>
+                            Answer recap questions and record homework.
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <h3>How the Website Supports the Teaching Approach</h3>
+
+        <p>
+            The website supports the lesson by providing learners with a
+            structured digital version of the lesson content. The model
+            email can be displayed during teaching, while the explanations,
+            comparison table, activity and assessment allow learners to
+            reinforce the concepts after the teacher's explanation.
+        </p>
+
+    </section>
+
+
+    <!-- 5. INTERACTIVE ACTIVITY -->
+
+    <section id="activity">
+
+        <h2>5. Interactive Learning Activity</h2>
+
+        <div class="activity">
+
+            <h3>Write a Formal Email to the Principal</h3>
+
+            <p>
+                Imagine that you want to organise a school event. You need
+                permission from the principal before the event can take
+                place.
+            </p>
+
+            <h4>Instructions</h4>
+
+            <ol>
+                <li>Write an appropriate subject line.</li>
+                <li>Use a suitable formal greeting.</li>
+                <li>Clearly explain why you are writing.</li>
+                <li>Give relevant information about the proposed event.</li>
+                <li>Make your request politely.</li>
+                <li>Use an appropriate formal closing.</li>
+                <li>Proofread your email for grammar, spelling and punctuation.</li>
+            </ol>
+
+            <h4>Plan Your Email</h4>
+
+            <label for="email-plan">
+                Write your ideas before composing the final email:
+            </label>
+
+            <textarea
+                id="email-plan"
+                rows="7"
+                placeholder="Write your ideas here..."></textarea>
+
+            <button type="button" onclick="saveActivity()">
+                Check Activity
+            </button>
+
+            <div id="activity-result" class="result">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 6. ASSESSMENT -->
+
+    <section id="assessment">
+
+        <h2>6. Digital Assessment</h2>
+
+        <p>
+            Answer all five questions. The multiple-choice questions
+            contribute to the automatic score. The written response should
+            be marked by the teacher using the memorandum.
+        </p>
+
+        <form id="quizForm">
+
+            <div class="question">
+
+                <p>
+                    <strong>Question 1 — 1 mark</strong>
+                </p>
+
+                <p>
+                    Which part of an email tells the recipient what the
+                    message is about?
+                </p>
+
+                <label>
+                    <input type="radio" name="q1" value="a">
+                    Greeting
+                </label>
+
+                <label>
+                    <input type="radio" name="q1" value="b">
+                    Subject
+                </label>
+
+                <label>
+                    <input type="radio" name="q1" value="c">
+                    Closing
+                </label>
+
+                <label>
+                    <input type="radio" name="q1" value="d">
+                    Signature
+                </label>
+
+            </div>
+
+
+            <div class="question">
+
+                <p>
+                    <strong>Question 2 — 1 mark</strong>
+                </p>
+
+                <p>
+                    Which language style is most appropriate when writing
+                    a formal email to a principal?
+                </p>
+
+                <label>
+                    <input type="radio" name="q2" value="a">
+                    Respectful and formal language
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="b">
+                    Slang and informal expressions
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="c">
+                    Abbreviations and texting language
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="d">
+                    Language with no greeting
+                </label>
+
+            </div>
+
+
+            <div class="question">
+
+                <p>
+                    <strong>Question 3 — 1 mark</strong>
+                </p>
+
+                <p>
+                    Which of the following is normally part of the body
+                    of an email?
+                </p>
+
+                <label>
+                    <input type="radio" name="q3" value="a">
+                    The main message or information
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="b">
+                    Only the recipient's address
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="c">
+                    Only the subject
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="d">
+                    The website navigation menu
+                </label>
+
+            </div>
+
+
+            <div class="question">
+
+                <p>
+                    <strong>Question 4 — 1 mark</strong>
+                </p>
+
+                <p>
+                    Why should a learner proofread a formal email before
+                    sending it?
+                </p>
+
+                <label>
+                    <input type="radio" name="q4" value="a">
+                    To make the email longer
+                </label>
+
+                <label>
+                    <input type="radio" name="q4" value="b">
+                    To check grammar, spelling and punctuation
+                </label>
+
+                <label>
+                    <input type="radio" name="q4" value="c">
+                    To remove the subject
+                </label>
+
+                <label>
+                    <input type="radio" name="q4" value="d">
+                    To make the email informal
+                </label>
+
+            </div>
+
+
+            <div class="question">
+
+                <p>
+                    <strong>Question 5 — 6 marks</strong>
+                </p>
+
+                <p>
+                    Write a formal email to the principal requesting
+                    permission for a school event.
+                </p>
+
+                <p>
+                    Your email should include an appropriate subject,
+                    greeting, clearly organised body and closing.
+                    Use appropriate formal language and proofread your
+                    work.
+                </p>
+
+                <textarea
+                    id="q5"
+                    rows="12"
+                    placeholder="Write your formal email here..."></textarea>
+
+            </div>
+
+
+            <button type="button" onclick="submitQuiz()">
+                Submit Assessment
+            </button>
+
+        </form>
+
+        <div id="quiz-result" class="result">
+        </div>
+
+    </section>
+
+
+    
+
+    <!-- 7. DIGITAL CITIZENSHIP -->
+
+    <section id="citizenship">
+
+        <h2>7. Digital Citizenship</h2>
+
+        <h3>Responsible Online Participation</h3>
+
+        <p>
+            Learners should communicate respectfully when using digital
+            communication tools. They should avoid cyberbullying,
+            harassment, impersonation and other harmful online behaviour.
+        </p>
+
+        <h3>Copyright</h3>
+
+        <p>
+            Digital learning materials should be used responsibly.
+            Learners and teachers should acknowledge sources and respect
+            copyright when using text, images, videos or other resources
+            created by other people.
+        </p>
+
+        <h3>Learner Privacy</h3>
+
+        <p>
+            Personal information belonging to learners should Personal information belonging to learners should not be
+            publicly displayed on the website. Learner names, contact
+            details, passwords, addresses and photographs should not be
+            published without appropriate permission.
+        </p>
+
+        <div class="note">
+            <strong>Privacy reminder:</strong>
+            Do not enter real learner passwords, private contact
+            information or other sensitive personal information into
+            this educational website.
+        </div>
+
+    </section>
+
+
+    <!-- 8. SOURCES -->
+
+    <section id="sources">
+
+        <h2>8. Sources and Acknowledgements</h2>
+
+        <p>
+            <strong>NSSCAS English Second Language Syllabus<strong>
+            https://www.nied.edu.na/assets/documents/02Syllabuses/05SeniorSecondary/EnglishSecondLanguage/NSSCAS_English_Second_Language_syllabus_approved_26_October_2020.pdf
+        </p>
+
+        
+                <strong>Lesson plan:</strong>
+                Tremendous Academy English Second Language lesson
+                plan: Writing Skills — Email.
+            </li>
+
+            <li>
+                <strong>Teaching resources:</strong>
+                List any textbook, educational website, article, video,
+                diagram or other resource used.
+            </li>
+
+        </ol>
+
+        <h3>AI Use Disclosure</h3>
+
+        <p>
+            Codeex from openAI has been used to draft the html file.
+        </p>
+
+    
+
+</main>
+
+
+<footer>
+
+    <p>
+        <strong>Tremendous Academy</strong>
+    </p>
+
+    <p>
+        English Second Language — Grades 10–11
+    </p>
+
+    <p>
+        Writing Skills: Email
+    </p>
+
+    <p>
+        ICT in Teaching &amp; Learning Educational Website
+    </p>
+
+    <a class="back-top" href="#top">Back to top</a>
+
+</footer>
+
+
+<script>
+
+    /*
+     * INTERACTIVE LEARNING ACTIVITY
+     */
+
+    function saveActivity() {
+
+        const ideas =
+            document.getElementById("email-plan").value.trim();
+
+        const result =
+            document.getElementById("activity-result");
+
+        if (ideas.length < 10) {
+
+            result.style.display = "block";
+
+            result.innerHTML =
+                "<strong>Keep working.</strong><br>" +
+                "Write a few ideas about the event, why you need " +
+                "permission and what you want to request.";
+
+            return;
+        }
+
+        result.style.display = "block";
+
+        result.innerHTML =
+            "<strong>Good work!</strong><br>" +
+            "You have started planning your formal email. " +
+            "Now use your ideas to write the complete email in the " +
+            "assessment section.";
+
+    }
+
+
+    /*
+     * DIGITAL ASSESSMENT
+     *
+     * Questions 1–4 are automatically marked.
+     * Question 5 is marked by the teacher using the memorandum.
+     */
+
+    function submitQuiz() {
+
+        const answerKey = {
+            q1: "b",
+            q2: "a",
+            q3: "a",
+            q4: "b"
+        };
+
+        let score = 0;
+
+        for (const question in answerKey) {
+
+            const selected =
+                document.querySelector(
+                    'input[name="' + question + '"]:checked'
+                );
+
+            if (selected && selected.value === answerKey[question]) {
+                score++;
+            }
+        }
+
+        const writtenAnswer =
+            document.getElementById("q5").value.trim();
+
+        const result =
+            document.getElementById("quiz-result");
+
+        if (writtenAnswer.length < 20) {
+
+            result.style.display = "block";
+
+            result.innerHTML =
+                "<strong>Please complete Question 5.</strong><br>" +
+                "Write your formal email before submitting the assessment.";
+
+            return;
+        }
+
+        result.style.display = "block";
+
+        result.innerHTML =
+            "<strong>Assessment submitted.</strong><br><br>" +
+            "Automatically marked questions: " +
+            score +
+            "/4.<br>" +
+            "Question 5: 6 marks — teacher marked.<br><br>" +
+            "<strong>Total assessment:</strong> 10 marks.";
+
+        result.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    }
+
+</script>
+
+</body>
+</html>
