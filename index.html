@@ -351,11 +351,22 @@
         }
 
         .document-card {
+            display: block;
             border: 1px solid #d8e1eb;
             border-radius: 8px;
             padding: 16px;
             background: #f8fafc;
             min-width: 0;
+            color: inherit;
+            text-decoration: none;
+            transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+        }
+
+        .document-card:hover,
+        .document-card:focus-visible {
+            border-color: #2f75b5;
+            background: #eef5fb;
+            transform: translateY(-2px);
         }
 
         .document-card h3 {
@@ -367,13 +378,6 @@
             color: #526174;
             font-size: 0.9rem;
             overflow-wrap: anywhere;
-        }
-
-        .document-card a {
-            display: inline-block;
-            margin-top: 6px;
-            color: #17365d;
-            font-weight: bold;
         }
 
         .document-status {
@@ -1413,11 +1417,7 @@
             <li>
                 <strong>Teaching resources:</strong>
                 The laptop and projector are identified as teaching aids in
-                the lesson. Browse the available supporting documents below.
-                <div class="documents-toolbar">
-                    <label for="document-search"><strong>Search resources</strong></label>
-                    <input id="document-search" type="text" placeholder="Search by file name or folder..." autocomplete="off">
-                </div>
+                the lesson. Supporting documents are listed below.
                 <p id="document-status" class="document-status" role="status" aria-live="polite">
                     Loading resources from the repository...
                 </p>
@@ -1462,30 +1462,6 @@
 </main>
 
 
-<footer>
-
-    <p>
-        <strong>Tremendous Academy</strong>
-    </p>
-
-    <p>
-        English Second Language — Grades 10–11
-    </p>
-
-    <p>
-        Writing Skills: Email
-    </p>
-
-    <p>
-        ICT in Teaching &amp; Learning Educational Website
-    </p>
-
-    <a class="back-top" href="#top">Back to top</a>
-
-</footer>
-
-
-
 <section class="designed-by-section" aria-labelledby="designed-by-heading">
     <h2 id="designed-by-heading">Designed by:</h2>
     <p class="designed-by-intro">Tremendous Academy — Group Members</p>
@@ -1493,15 +1469,15 @@
         <div class="designed-by-member">
             <span class="designed-by-number" aria-hidden="true">1</span>
             <div>
-                <span class="designed-by-name">Gerson Fillemon</span>
-                <span class="designed-by-student-number">Student No.: 224189948</span>
+                <span class="designed-by-name">Josephina K Haukongo</span>
+                <span class="designed-by-student-number">Student No.: 225064340</span>
             </div>
         </div>
         <div class="designed-by-member">
             <span class="designed-by-number" aria-hidden="true">2</span>
             <div>
-                <span class="designed-by-name">Josephina K Haukongo</span>
-                <span class="designed-by-student-number">Student No.: 225064340</span>
+                <span class="designed-by-name">Gerson Fillemon</span>
+                <span class="designed-by-student-number">Student No.: 224189948</span>
             </div>
         </div>
         <div class="designed-by-member">
@@ -1556,6 +1532,32 @@
     </div>
 </section>
 
+<footer>
+
+    <p>
+        <strong>Tremendous Academy</strong>
+    </p>
+
+    <p>
+        English Second Language — Grades 10–11
+    </p>
+
+    <p>
+        Writing Skills: Email
+    </p>
+
+    <p>
+        ICT in Teaching &amp; Learning Educational Website
+    </p>
+
+    <a class="back-top" href="#top">Back to top</a>
+
+</footer>
+
+
+
+
+
 <script>
 
     /*
@@ -1574,7 +1576,6 @@
 
         const status = document.getElementById("document-status");
         const list = document.getElementById("document-list");
-        const search = document.getElementById("document-search");
         let documents = [];
 
         function showStatus(message, isError) {
@@ -1590,28 +1591,30 @@
         }
 
         function renderDocuments() {
-            const query = search.value.trim().toLowerCase();
-            const filtered = documents.filter(function (file) {
-                return file.path.toLowerCase().includes(query);
-            });
+            const filtered = documents;
 
             list.replaceChildren();
 
             if (filtered.length === 0) {
                 showStatus(
                     documents.length
-                        ? "No documents match your search."
-                        : "No supported documents were found in the repository.",
+                        ? "No supported documents were found in the Documents folder."
+                        : "No supported documents were found in the Documents folder.",
                     false
                 );
                 return;
             }
 
-            showStatus("Found " + filtered.length + " document(s) in the Documents folder. Select a file to open it or download it from the file page.", false);
+            showStatus("Found " + filtered.length + " document(s). Select a document card to open the file page and access the download option.", false);
 
             filtered.forEach(function (file) {
-                const card = document.createElement("article");
+                const card = document.createElement("a");
                 card.className = "document-card";
+                card.href = "https://github.com/" + owner + "/" + repository + "/blob/" +
+                    branch + "/" + file.path.split("/").map(encodeURIComponent).join("/");
+                card.target = "_blank";
+                card.rel = "noopener noreferrer";
+                card.setAttribute("aria-label", "Open or download " + file.name);
 
                 const title = document.createElement("h3");
                 title.textContent = file.name;
@@ -1621,19 +1624,9 @@
                 path.textContent = file.path + (file.size ? " · " + readableSize(file.size) : "");
                 card.appendChild(path);
 
-                const openLink = document.createElement("a");
-                openLink.href = "https://github.com/" + owner + "/" + repository + "/blob/" +
-                    branch + "/" + file.path.split("/").map(encodeURIComponent).join("/");
-                openLink.target = "_blank";
-                openLink.rel = "noopener noreferrer";
-                openLink.textContent = file.extension === "pdf" ? "Open PDF / download" : "Open / download document";
-                card.appendChild(openLink);
-
                 list.appendChild(card);
             });
         }
-
-        search.addEventListener("input", renderDocuments);
 
         fetch("https://api.github.com/repos/" + owner + "/" + repository + "/git/trees/" + branch + "?recursive=1")
             .then(function (response) {
