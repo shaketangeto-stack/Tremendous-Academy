@@ -1236,7 +1236,41 @@
             <div class="question">
 
                 <p>
-                    <strong>Question 5 — 6 marks</strong>
+                    <strong>Question 5 — 1 mark</strong>
+                </p>
+
+                <p>
+                    Which closing is most appropriate for a formal email
+                    when the recipient’s name is known?
+                </p>
+
+                <label>
+                    <input type="radio" name="q5" value="a">
+                    Yours faithfully
+                </label>
+
+                <label>
+                    <input type="radio" name="q5" value="b">
+                    Kind regards
+                </label>
+
+                <label>
+                    <input type="radio" name="q5" value="c">
+                    Yours sincerely
+                </label>
+
+                <label>
+                    <input type="radio" name="q5" value="d">
+                    Best wishes
+                </label>
+
+            </div>
+
+
+            <div class="question">
+
+                <p>
+                    <strong>Question 6 — 6 marks</strong>
                 </p>
 
                 <p>
@@ -1252,7 +1286,7 @@
                 </p>
 
                 <textarea
-                    id="q5"
+                    id="q6"
                     rows="12"
                     placeholder="Write your formal email here..."></textarea>
 
@@ -1642,8 +1676,8 @@
     /*
      * DIGITAL ASSESSMENT
      *
-     * Questions 1–4 are automatically marked.
-     * Question 5 is marked by the teacher using the memorandum.
+     * Questions 1–5 are automatically marked.
+     * Question 6 is marked by the teacher using the memorandum.
      */
 
     function submitQuiz() {
@@ -1652,7 +1686,8 @@
             q1: "b",
             q2: "a",
             q3: "a",
-            q4: "b"
+            q4: "b",
+            q5: "c"
         };
 
         let score = 0;
@@ -1670,7 +1705,7 @@
         }
 
         const writtenAnswer =
-            document.getElementById("q5").value.trim();
+            document.getElementById("q6").value.trim();
 
         const result =
             document.getElementById("quiz-result");
@@ -1680,7 +1715,7 @@
             result.style.display = "block";
 
             result.innerHTML =
-                "<strong>Please complete Question 5.</strong><br>" +
+                "<strong>Please complete Question 6.</strong><br>" +
                 "Write your formal email before submitting the assessment.";
 
             return;
@@ -1692,9 +1727,9 @@
             "<strong>Assessment submitted.</strong><br><br>" +
             "Automatically marked questions: " +
             score +
-            "/4.<br>" +
-            "Question 5: 6 marks — teacher marked.<br><br>" +
-            "<strong>Total assessment:</strong> 10 marks.";
+            "/5.<br>" +
+            "Question 6: 6 marks — teacher marked.<br><br>" +
+            "<strong>Total assessment:</strong> 11 marks.";
 
         result.scrollIntoView({
             behavior: "smooth",
