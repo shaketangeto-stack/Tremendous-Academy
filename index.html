@@ -1607,7 +1607,7 @@
                 return;
             }
 
-            showStatus("Found " + filtered.length + " document(s). Select a file to open it.", false);
+            showStatus("Found " + filtered.length + " document(s) in the Documents folder. Select a file to open it or download it from the file page.", false);
 
             filtered.forEach(function (file) {
                 const card = document.createElement("article");
@@ -1647,7 +1647,8 @@
 
                 documents = (data.tree || [])
                     .filter(function (item) {
-                        if (item.type !== "blob") return false;
+                        // List supported files only from the Documents folder.
+                        if (item.type !== "blob" || !item.path.startsWith("Documents/")) return false;
                         const name = item.path.split("/").pop();
                         const dot = name.lastIndexOf(".");
                         if (dot < 1) return false;
