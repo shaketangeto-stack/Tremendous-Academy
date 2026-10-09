@@ -321,6 +321,66 @@
             margin-top: 12px;
         }
 
+        .documents-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            margin: 16px 0;
+        }
+
+        .documents-toolbar input {
+            flex: 1 1 260px;
+            margin-top: 0;
+        }
+
+        .document-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .document-card {
+            border: 1px solid #d8e1eb;
+            border-radius: 8px;
+            padding: 16px;
+            background: #f8fafc;
+            min-width: 0;
+        }
+
+        .document-card h3 {
+            margin: 0 0 8px;
+            overflow-wrap: anywhere;
+        }
+
+        .document-card p {
+            color: #526174;
+            font-size: 0.9rem;
+            overflow-wrap: anywhere;
+        }
+
+        .document-card a {
+            display: inline-block;
+            margin-top: 6px;
+            color: #17365d;
+            font-weight: bold;
+        }
+
+        .document-status {
+            padding: 12px 15px;
+            background: #eef5fb;
+            border-left: 4px solid #2f75b5;
+            border-radius: 5px;
+            margin: 12px 0;
+        }
+
+        .document-status.error {
+            background: #fff8df;
+            border-left-color: #e0a800;
+        }
+
+
         @media (max-width: 700px) {
             header h1 {
                 font-size: 1.7rem;
@@ -332,7 +392,7 @@
             }
 
             nav a {
-                white-space: nowrap;7
+                white-space: nowrap;
             }
 
             section {
@@ -371,6 +431,7 @@
         <a href="#content">Learning Content</a>
         <a href="#aids">Teaching Aids</a>
         <a href="#lesson-plan">Lesson Plan</a>
+        <a href="#documents">Repository Documents</a>
         <a href="#activity">Activity</a>
         <a href="#assessment">Assessment</a>
         <a href="#memorandum">Memorandum</a>
@@ -1147,11 +1208,38 @@
 
     
 
-    <!-- 7. DIGITAL CITIZENSHIP -->
+    <!-- REPOSITORY DOCUMENT LIBRARY -->
+
+    <section id="documents">
+        <h2>7. Repository Documents</h2>
+        <p>
+            Browse and open learning documents published in the Tremendous Academy
+            GitHub repository. The list is generated from the repository, so newly
+            added supported documents appear here after the site is redeployed.
+        </p>
+
+        <div class="documents-toolbar">
+            <label for="document-search"><strong>Search documents</strong></label>
+            <input id="document-search" type="text" placeholder="Search by file name or folder..." autocomplete="off">
+        </div>
+
+        <p id="document-status" class="document-status" role="status" aria-live="polite">
+            Loading documents from the repository...
+        </p>
+        <div id="document-list" class="document-list"></div>
+        <p>
+            <a href="https://github.com/shaketangeto-stack/Tremendous-Academy/tree/main/Documents" target="_blank" rel="noopener noreferrer">
+                Browse the Documents folder on GitHub
+            </a>
+        </p>
+    </section>
+
+
+    <!-- 8. DIGITAL CITIZENSHIP -->
 
     <section id="citizenship">
 
-        <h2>7. Digital Citizenship</h2>
+        <h2>8. Digital Citizenship</h2>
 
         <h3>Responsible Online Participation</h3>
 
@@ -1193,7 +1281,7 @@
 
     <section id="sources">
 
-        <h2>8. Sources and Acknowledgements</h2>
+        <h2>9. Sources and Acknowledgements</h2>
 
         <p>
             <strong>NSSCAS English Second Language Syllabus<strong>
@@ -1249,6 +1337,136 @@
 
 
 <script>
+
+    /*
+     * REPOSITORY DOCUMENT LIBRARY
+     * Lists supported documents from the public GitHub repository tree.
+     */
+    (function loadRepositoryDocuments() {
+        const owner = "shaketangeto-stack";
+        const repository = "Tremendous-Academy";
+        const branch = "main";
+        const siteBase = "https://shaketangeto-stack.github.io/Tremendous-Academy/";
+        const supportedExtensions = new Set([
+            "pdf", "doc", "docx", "ppt", "pptx", "xls", "xlsx",
+            "odt", "ods", "odp", "rtf", "txt", "md"
+        ]);
+
+        const status = document.getElementById("document-status");
+        const list = document.getElementById("document-list");
+        const search = document.getElementById("document-search");
+        let documents = [];
+
+        function showStatus(message, isError) {
+            status.textContent = message;
+            status.classList.toggle("error", Boolean(isError));
+        }
+
+        function readableSize(bytes) {
+            if (!Number.isFinite(bytes) || bytes < 0) return "";
+            if (bytes < 1024) return bytes + " B";
+            if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+            return (bytes / (1024 * 1024)).toFixed(1) + " MB";
+        }
+
+        function renderDocuments() {
+            const query = search.value.trim().toLowerCase();
+            const filtered = documents.filter(function (file) {
+                return file.path.toLowerCase().includes(query);
+            });
+
+            list.replaceChildren();
+
+            if (filtered.length === 0) {
+                showStatus(
+                    documents.length
+                        ? "No documents match your search."
+                        : "No supported documents were found in the repository.",
+                    false
+                );
+                return;
+            }
+
+            showStatus("Found " + filtered.length + " document(s). Select a file to open it.", false);
+
+            filtered.forEach(function (file) {
+                const card = document.createElement("article");
+                card.className = "document-card";
+
+                const title = document.createElement("h3");
+                title.textContent = file.name;
+                card.appendChild(title);
+
+                const path = document.createElement("p");
+                path.textContent = file.path + (file.size ? " · " + readableSize(file.size) : "");
+                card.appendChild(path);
+
+                const openLink = document.createElement("a");
+                openLink.href = siteBase + file.path.split("/").map(encodeURIComponent).join("/");
+                openLink.target = "_blank";
+                openLink.rel = "noopener noreferrer";
+                openLink.textContent = file.extension === "pdf" ? "Open PDF" : "Open document";
+                card.appendChild(openLink);
+
+                const sourceLink = document.createElement("a");
+                sourceLink.href = "https://github.com/" + owner + "/" + repository + "/blob/" +
+                    branch + "/" + file.path.split("/").map(encodeURIComponent).join("/");
+                sourceLink.target = "_blank";
+                sourceLink.rel = "noopener noreferrer";
+                sourceLink.textContent = "View on GitHub";
+                sourceLink.style.marginLeft = "14px";
+                card.appendChild(sourceLink);
+
+                list.appendChild(card);
+            });
+        }
+
+        search.addEventListener("input", renderDocuments);
+
+        fetch("https://api.github.com/repos/" + owner + "/" + repository + "/git/trees/" + branch + "?recursive=1")
+            .then(function (response) {
+                if (!response.ok) throw new Error("GitHub returned HTTP " + response.status);
+                return response.json();
+            })
+            .then(function (data) {
+                if (data.truncated) {
+                    showStatus("GitHub returned a partial file list. You can also browse the Documents folder directly.", true);
+                }
+
+                documents = (data.tree || [])
+                    .filter(function (item) {
+                        if (item.type !== "blob") return false;
+                        const name = item.path.split("/").pop();
+                        const dot = name.lastIndexOf(".");
+                        if (dot < 1) return false;
+                        const extension = name.slice(dot + 1).toLowerCase();
+                        return supportedExtensions.has(extension) &&
+                            name.toLowerCase() !== "readme.md";
+                    })
+                    .map(function (item) {
+                        const name = item.path.split("/").pop();
+                        return {
+                            name: name,
+                            path: item.path,
+                            size: item.size || 0,
+                            extension: name.split(".").pop().toLowerCase()
+                        };
+                    })
+                    .sort(function (a, b) {
+                        return a.path.localeCompare(b.path);
+                    });
+
+                renderDocuments();
+            })
+            .catch(function (error) {
+                console.error("Unable to load repository documents:", error);
+                showStatus(
+                    "The automatic document list could not be loaded. Check your internet connection or browse the Documents folder directly on GitHub.",
+                    true
+                );
+            });
+    })();
+
 
     /*
      * INTERACTIVE LEARNING ACTIVITY
